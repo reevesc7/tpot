@@ -65,7 +65,7 @@ classifier_config_dict_light = {
 
     # Preprocesssors
     'sklearn.preprocessing.Binarizer': {
-        'threshold': np.arange(0.0, 1.01, 0.05)
+        'threshold': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.cluster.FeatureAgglomeration': {
@@ -89,7 +89,7 @@ classifier_config_dict_light = {
     },
 
     'sklearn.kernel_approximation.RBFSampler': {
-        'gamma': np.arange(0.0, 1.01, 0.05)
+        'gamma': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.preprocessing.RobustScaler': {
@@ -103,7 +103,7 @@ classifier_config_dict_light = {
 
     # Selectors
     'sklearn.feature_selection.SelectFwe': {
-        'alpha': np.arange(0, 0.05, 0.001),
+        'alpha': np.arange(0, 0.05, 0.001).tolist(),
         'score_func': {
             'sklearn.feature_selection.f_classif': None
         }

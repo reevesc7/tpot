@@ -33,7 +33,7 @@ regressor_config_cuml = {
     # cuML + DMLC/XGBoost Regressors
 
     "cuml.linear_model.ElasticNet": {
-        "l1_ratio": np.arange(0.0, 1.01, 0.05),
+        "l1_ratio": np.arange(0.0, 1.01, 0.05).tolist(),
         "tol": [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
     },
 
@@ -53,7 +53,7 @@ regressor_config_cuml = {
         "n_estimators": [100],
         "max_depth": range(3, 10),
         "learning_rate": [1e-2, 1e-1, 0.5, 1.],
-        "subsample": np.arange(0.05, 1.01, 0.05),
+        "subsample": np.arange(0.05, 1.01, 0.05).tolist(),
         "min_child_weight": range(1, 21),
         "alpha": [1, 10],
         "tree_method": ["gpu_hist"],
@@ -65,11 +65,11 @@ regressor_config_cuml = {
     # Sklearn Preprocesssors
 
     "sklearn.preprocessing.Binarizer": {
-        "threshold": np.arange(0.0, 1.01, 0.05)
+        "threshold": np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     "sklearn.decomposition.FastICA": {
-        "tol": np.arange(0.0, 1.01, 0.05)
+        "tol": np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     "sklearn.cluster.FeatureAgglomeration": {
@@ -89,7 +89,7 @@ regressor_config_cuml = {
 
     "sklearn.kernel_approximation.Nystroem": {
         "kernel": ["rbf", "cosine", "chi2", "laplacian", "polynomial", "poly", "linear", "additive_chi2", "sigmoid"],
-        "gamma": np.arange(0.0, 1.01, 0.05),
+        "gamma": np.arange(0.0, 1.01, 0.05).tolist(),
         "n_components": range(1, 11)
     },
 
@@ -99,7 +99,7 @@ regressor_config_cuml = {
     },
 
     "sklearn.kernel_approximation.RBFSampler": {
-        "gamma": np.arange(0.0, 1.01, 0.05)
+        "gamma": np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     "sklearn.preprocessing.RobustScaler": {
@@ -120,7 +120,7 @@ regressor_config_cuml = {
     # Selectors
 
     "sklearn.feature_selection.SelectFwe": {
-        "alpha": np.arange(0, 0.05, 0.001),
+        "alpha": np.arange(0, 0.05, 0.001).tolist(),
         "score_func": {
             "sklearn.feature_selection.f_classif": None
         }

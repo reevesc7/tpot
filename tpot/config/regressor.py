@@ -30,13 +30,13 @@ import numpy as np
 regressor_config_dict = {
 
     'sklearn.linear_model.ElasticNetCV': {
-        'l1_ratio': np.arange(0.0, 1.01, 0.05),
+        'l1_ratio': np.arange(0.0, 1.01, 0.05).tolist(),
         'tol': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
     },
 
     'sklearn.ensemble.ExtraTreesRegressor': {
         'n_estimators': [100],
-        'max_features': np.arange(0.05, 1.01, 0.05),
+        'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_samples_split': range(2, 21),
         'min_samples_leaf': range(1, 21),
         'bootstrap': [True, False]
@@ -49,8 +49,8 @@ regressor_config_dict = {
         'max_depth': range(1, 11),
         'min_samples_split': range(2, 21),
         'min_samples_leaf': range(1, 21),
-        'subsample': np.arange(0.05, 1.01, 0.05),
-        'max_features': np.arange(0.05, 1.01, 0.05),
+        'subsample': np.arange(0.05, 1.01, 0.05).tolist(),
+        'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
         'alpha': [0.75, 0.8, 0.85, 0.9, 0.95, 0.99]
     },
 
@@ -86,7 +86,7 @@ regressor_config_dict = {
 
     'sklearn.ensemble.RandomForestRegressor': {
         'n_estimators': [100],
-        'max_features': np.arange(0.05, 1.01, 0.05),
+        'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_samples_split': range(2, 21),
         'min_samples_leaf': range(1, 21),
         'bootstrap': [True, False]
@@ -99,7 +99,7 @@ regressor_config_dict = {
         'n_estimators': [100],
         'max_depth': range(1, 11),
         'learning_rate': [1e-3, 1e-2, 1e-1, 0.5, 1.],
-        'subsample': np.arange(0.05, 1.01, 0.05),
+        'subsample': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_child_weight': range(1, 21),
         'n_jobs': [1],
         'verbosity': [0],
@@ -119,11 +119,11 @@ regressor_config_dict = {
 
     # Preprocessors
     'sklearn.preprocessing.Binarizer': {
-        'threshold': np.arange(0.0, 1.01, 0.05)
+        'threshold': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.decomposition.FastICA': {
-        'tol': np.arange(0.0, 1.01, 0.05)
+        'tol': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.cluster.FeatureAgglomeration': {
@@ -143,7 +143,7 @@ regressor_config_dict = {
 
     'sklearn.kernel_approximation.Nystroem': {
         'kernel': ['rbf', 'cosine', 'chi2', 'laplacian', 'polynomial', 'poly', 'linear', 'additive_chi2', 'sigmoid'],
-        'gamma': np.arange(0.0, 1.01, 0.05),
+        'gamma': np.arange(0.0, 1.01, 0.05).tolist(),
         'n_components': range(1, 11)
     },
 
@@ -159,7 +159,7 @@ regressor_config_dict = {
     },
 
     'sklearn.kernel_approximation.RBFSampler': {
-        'gamma': np.arange(0.0, 1.01, 0.05)
+        'gamma': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.preprocessing.RobustScaler': {
@@ -180,7 +180,7 @@ regressor_config_dict = {
 
     # Selectors
     'sklearn.feature_selection.SelectFwe': {
-        'alpha': np.arange(0, 0.05, 0.001),
+        'alpha': np.arange(0, 0.05, 0.001).tolist(),
         'score_func': {
             'sklearn.feature_selection.f_regression': None
         }
@@ -198,11 +198,11 @@ regressor_config_dict = {
     },
 
     'sklearn.feature_selection.SelectFromModel': {
-        'threshold': np.arange(0, 1.01, 0.05),
+        'threshold': np.arange(0, 1.01, 0.05).tolist(),
         'estimator': {
             'sklearn.ensemble.ExtraTreesRegressor': {
                 'n_estimators': [100],
-                'max_features': np.arange(0.05, 1.01, 0.05)
+                'max_features': np.arange(0.05, 1.01, 0.05).tolist()
             }
         }
     }

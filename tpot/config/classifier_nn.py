@@ -69,7 +69,7 @@ classifier_config_nn = {
     'sklearn.ensemble.ExtraTreesClassifier': {
         'n_estimators': [100],
         'criterion': ["gini", "entropy"],
-        'max_features': np.arange(0.05, 1.01, 0.05),
+        'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_samples_split': range(2, 21),
         'min_samples_leaf': range(1, 21),
         'bootstrap': [True, False]
@@ -78,7 +78,7 @@ classifier_config_nn = {
     'sklearn.ensemble.RandomForestClassifier': {
         'n_estimators': [100],
         'criterion': ["gini", "entropy"],
-        'max_features': np.arange(0.05, 1.01, 0.05),
+        'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_samples_split': range(2, 21),
         'min_samples_leaf':  range(1, 21),
         'bootstrap': [True, False]
@@ -90,8 +90,8 @@ classifier_config_nn = {
         'max_depth': range(1, 11),
         'min_samples_split': range(2, 21),
         'min_samples_leaf': range(1, 21),
-        'subsample': np.arange(0.05, 1.01, 0.05),
-        'max_features': np.arange(0.05, 1.01, 0.05)
+        'subsample': np.arange(0.05, 1.01, 0.05).tolist(),
+        'max_features': np.arange(0.05, 1.01, 0.05).tolist()
     },
 
     'sklearn.neighbors.KNeighborsClassifier': {
@@ -118,7 +118,7 @@ classifier_config_nn = {
         'n_estimators': [100],
         'max_depth': range(1, 11),
         'learning_rate': [1e-3, 1e-2, 1e-1, 0.5, 1.],
-        'subsample': np.arange(0.05, 1.01, 0.05),
+        'subsample': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_child_weight': range(1, 21),
         'n_jobs': [1],
         'verbosity': [0]
@@ -142,11 +142,11 @@ classifier_config_nn = {
 
     # Preprocesssors
     'sklearn.preprocessing.Binarizer': {
-        'threshold': np.arange(0.0, 1.01, 0.05)
+        'threshold': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.decomposition.FastICA': {
-        'tol': np.arange(0.0, 1.01, 0.05)
+        'tol': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.cluster.FeatureAgglomeration': {
@@ -166,7 +166,7 @@ classifier_config_nn = {
 
     'sklearn.kernel_approximation.Nystroem': {
         'kernel': ['rbf', 'cosine', 'chi2', 'laplacian', 'polynomial', 'poly', 'linear', 'additive_chi2', 'sigmoid'],
-        'gamma': np.arange(0.0, 1.01, 0.05),
+        'gamma': np.arange(0.0, 1.01, 0.05).tolist(),
         'n_components': range(1, 11)
     },
 
@@ -182,7 +182,7 @@ classifier_config_nn = {
     },
 
     'sklearn.kernel_approximation.RBFSampler': {
-        'gamma': np.arange(0.0, 1.01, 0.05)
+        'gamma': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.preprocessing.RobustScaler': {
@@ -202,7 +202,7 @@ classifier_config_nn = {
 
     # Selectors
     'sklearn.feature_selection.SelectFwe': {
-        'alpha': np.arange(0, 0.05, 0.001),
+        'alpha': np.arange(0, 0.05, 0.001).tolist(),
         'score_func': {
             'sklearn.feature_selection.f_classif': None
         }
@@ -220,23 +220,23 @@ classifier_config_nn = {
     },
 
     'sklearn.feature_selection.RFE': {
-        'step': np.arange(0.05, 1.01, 0.05),
+        'step': np.arange(0.05, 1.01, 0.05).tolist(),
         'estimator': {
             'sklearn.ensemble.ExtraTreesClassifier': {
                 'n_estimators': [100],
                 'criterion': ['gini', 'entropy'],
-                'max_features': np.arange(0.05, 1.01, 0.05)
+                'max_features': np.arange(0.05, 1.01, 0.05).tolist()
             }
         }
     },
 
     'sklearn.feature_selection.SelectFromModel': {
-        'threshold': np.arange(0, 1.01, 0.05),
+        'threshold': np.arange(0, 1.01, 0.05).tolist(),
         'estimator': {
             'sklearn.ensemble.ExtraTreesClassifier': {
                 'n_estimators': [100],
                 'criterion': ['gini', 'entropy'],
-                'max_features': np.arange(0.05, 1.01, 0.05)
+                'max_features': np.arange(0.05, 1.01, 0.05).tolist()
             }
         }
     }

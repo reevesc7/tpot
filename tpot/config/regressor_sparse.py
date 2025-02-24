@@ -38,14 +38,14 @@ regressor_config_sparse = {
 
     'sklearn.ensemble.RandomForestRegressor': {
         'n_estimators': [100],
-        'max_features': np.arange(0.05, 1.01, 0.05),
+        'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_samples_split': range(2, 21),
         'min_samples_leaf': range(1, 21),
         'bootstrap': [True, False]
     },
 
     'sklearn.feature_selection.SelectFwe': {
-        'alpha': np.arange(0, 0.05, 0.001),
+        'alpha': np.arange(0, 0.05, 0.001).tolist(),
         'score_func': {
             'sklearn.feature_selection.f_regression': None
         }
@@ -59,21 +59,21 @@ regressor_config_sparse = {
     },
 
     'sklearn.feature_selection.VarianceThreshold': {
-        'threshold': np.arange(0.05, 1.01, 0.05)
+        'threshold': np.arange(0.05, 1.01, 0.05).tolist()
     },
 
     'sklearn.feature_selection.SelectFromModel': {
-        'threshold': np.arange(0, 1.01, 0.05),
+        'threshold': np.arange(0, 1.01, 0.05).tolist(),
         'estimator': {
             'sklearn.ensemble.ExtraTreesRegressor': {
                 'n_estimators': [100],
-                'max_features': np.arange(0.05, 1.01, 0.05)
+                'max_features': np.arange(0.05, 1.01, 0.05).tolist()
             }
         }
     },
 
     'sklearn.linear_model.ElasticNetCV': {
-        'l1_ratio': np.arange(0.0, 1.01, 0.05),
+        'l1_ratio': np.arange(0.0, 1.01, 0.05).tolist(),
         'tol': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
     },
 
@@ -92,7 +92,7 @@ regressor_config_sparse = {
         'n_estimators': [100],
         'max_depth': range(1, 11),
         'learning_rate': [1e-3, 1e-2, 1e-1, 0.5, 1.],
-        'subsample': np.arange(0.05, 1.01, 0.05),
+        'subsample': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_child_weight': range(1, 21),
         'n_jobs': [1],
         'verbosity': [0],

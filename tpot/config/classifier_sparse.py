@@ -39,14 +39,14 @@ classifier_config_sparse = {
     'sklearn.ensemble.RandomForestClassifier': {
         'n_estimators': [100],
         'criterion': ["gini", "entropy"],
-        'max_features': np.arange(0.05, 1.01, 0.05),
+        'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_samples_split': range(2, 21),
         'min_samples_leaf':  range(1, 21),
         'bootstrap': [True, False]
     },
 
     'sklearn.feature_selection.SelectFwe': {
-        'alpha': np.arange(0, 0.05, 0.001),
+        'alpha': np.arange(0, 0.05, 0.001).tolist(),
         'score_func': {
             'sklearn.feature_selection.f_classif': None
         }
@@ -60,27 +60,27 @@ classifier_config_sparse = {
     },
 
     'sklearn.feature_selection.VarianceThreshold': {
-        'threshold': np.arange(0.05, 1.01, 0.05)
+        'threshold': np.arange(0.05, 1.01, 0.05).tolist()
     },
 
     'sklearn.feature_selection.RFE': {
-        'step': np.arange(0.05, 1.01, 0.05),
+        'step': np.arange(0.05, 1.01, 0.05).tolist(),
         'estimator': {
             'sklearn.ensemble.ExtraTreesClassifier': {
                 'n_estimators': [100],
                 'criterion': ['gini', 'entropy'],
-                'max_features': np.arange(0.05, 1.01, 0.05)
+                'max_features': np.arange(0.05, 1.01, 0.05).tolist()
             }
         }
     },
 
     'sklearn.feature_selection.SelectFromModel': {
-        'threshold': np.arange(0, 1.01, 0.05),
+        'threshold': np.arange(0, 1.01, 0.05).tolist(),
         'estimator': {
             'sklearn.ensemble.ExtraTreesClassifier': {
                 'n_estimators': [100],
                 'criterion': ['gini', 'entropy'],
-                'max_features': np.arange(0.05, 1.01, 0.05)
+                'max_features': np.arange(0.05, 1.01, 0.05).tolist()
             }
         }
     },
@@ -113,7 +113,7 @@ classifier_config_sparse = {
         'n_estimators': [100],
         'max_depth': range(1, 11),
         'learning_rate': [1e-3, 1e-2, 1e-1, 0.5, 1.],
-        'subsample': np.arange(0.05, 1.01, 0.05),
+        'subsample': np.arange(0.05, 1.01, 0.05).tolist(),
         'min_child_weight': range(1, 21),
         'n_jobs': [1],
         'verbosity': [0]

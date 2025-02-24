@@ -30,7 +30,7 @@ import numpy as np
 regressor_config_dict_light = {
 
     'sklearn.linear_model.ElasticNetCV': {
-        'l1_ratio': np.arange(0.0, 1.01, 0.05),
+        'l1_ratio': np.arange(0.0, 1.01, 0.05).tolist(),
         'tol': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
     },
 
@@ -64,7 +64,7 @@ regressor_config_dict_light = {
 
     # Preprocesssors
     'sklearn.preprocessing.Binarizer': {
-        'threshold': np.arange(0.0, 1.01, 0.05)
+        'threshold': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
 
@@ -85,7 +85,7 @@ regressor_config_dict_light = {
 
     'sklearn.kernel_approximation.Nystroem': {
         'kernel': ['rbf', 'cosine', 'chi2', 'laplacian', 'polynomial', 'poly', 'linear', 'additive_chi2', 'sigmoid'],
-        'gamma': np.arange(0.0, 1.01, 0.05),
+        'gamma': np.arange(0.0, 1.01, 0.05).tolist(),
         'n_components': range(1, 11)
     },
 
@@ -95,7 +95,7 @@ regressor_config_dict_light = {
     },
 
     'sklearn.kernel_approximation.RBFSampler': {
-        'gamma': np.arange(0.0, 1.01, 0.05)
+        'gamma': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.preprocessing.RobustScaler': {
@@ -109,7 +109,7 @@ regressor_config_dict_light = {
 
     # Selectors
     'sklearn.feature_selection.SelectFwe': {
-        'alpha': np.arange(0, 0.05, 0.001),
+        'alpha': np.arange(0, 0.05, 0.001).tolist(),
         'score_func': {
             'sklearn.feature_selection.f_regression': None
         }
