@@ -37,8 +37,8 @@ regressor_config_dict = {
     'sklearn.ensemble.ExtraTreesRegressor': {
         'n_estimators': [100],
         'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
-        'min_samples_split': range(2, 21),
-        'min_samples_leaf': range(1, 21),
+        'min_samples_split': [i for i in range(2, 21)],
+        'min_samples_leaf':[i for i in  range(1, 21)],
         'bootstrap': [True, False]
     },
 
@@ -46,9 +46,9 @@ regressor_config_dict = {
         'n_estimators': [100],
         'loss': ["ls", "lad", "huber", "quantile"],
         'learning_rate': [1e-3, 1e-2, 1e-1, 0.5, 1.],
-        'max_depth': range(1, 11),
-        'min_samples_split': range(2, 21),
-        'min_samples_leaf': range(1, 21),
+        'max_depth':[i for i in  range(1, 11)],
+        'min_samples_split':[i for i in  range(2, 21)],
+        'min_samples_leaf':[i for i in  range(1, 21)],
         'subsample': np.arange(0.05, 1.01, 0.05).tolist(),
         'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
         'alpha': [0.75, 0.8, 0.85, 0.9, 0.95, 0.99]
@@ -61,13 +61,13 @@ regressor_config_dict = {
     },
 
     'sklearn.tree.DecisionTreeRegressor': {
-        'max_depth': range(1, 11),
-        'min_samples_split': range(2, 21),
-        'min_samples_leaf': range(1, 21)
+        'max_depth':[i for i in  range(1, 11)],
+        'min_samples_split':[i for i in  range(2, 21)],
+        'min_samples_leaf':[i for i in  range(1, 21])
     },
 
     'sklearn.neighbors.KNeighborsRegressor': {
-        'n_neighbors': range(1, 101),
+        'n_neighbors':[i for i in  range(1, 101)],
         'weights': ["uniform", "distance"],
         'p': [1, 2]
     },
@@ -87,8 +87,8 @@ regressor_config_dict = {
     'sklearn.ensemble.RandomForestRegressor': {
         'n_estimators': [100],
         'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
-        'min_samples_split': range(2, 21),
-        'min_samples_leaf': range(1, 21),
+        'min_samples_split':[i for i in  range(2, 21)],
+        'min_samples_leaf':[i for i in  range(1, 21)],
         'bootstrap': [True, False]
     },
 
@@ -97,10 +97,10 @@ regressor_config_dict = {
 
     'xgboost.XGBRegressor': {
         'n_estimators': [100],
-        'max_depth': range(1, 11),
+        'max_depth':[i for i in  range(1, 11)],
         'learning_rate': [1e-3, 1e-2, 1e-1, 0.5, 1.],
         'subsample': np.arange(0.05, 1.01, 0.05).tolist(),
-        'min_child_weight': range(1, 21),
+        'min_child_weight':[i for i in  range(1, 21)],
         'n_jobs': [1],
         'verbosity': [0],
         'objective': ['reg:squarederror']
@@ -144,12 +144,12 @@ regressor_config_dict = {
     'sklearn.kernel_approximation.Nystroem': {
         'kernel': ['rbf', 'cosine', 'chi2', 'laplacian', 'polynomial', 'poly', 'linear', 'additive_chi2', 'sigmoid'],
         'gamma': np.arange(0.0, 1.01, 0.05).tolist(),
-        'n_components': range(1, 11)
+        'n_components':[i for i in  range(1, 11])
     },
 
     'sklearn.decomposition.PCA': {
         'svd_solver': ['randomized'],
-        'iterated_power': range(1, 11)
+        'iterated_power':[i for i in  range(1, 11])
     },
 
     'sklearn.preprocessing.PolynomialFeatures': {
@@ -187,7 +187,7 @@ regressor_config_dict = {
     },
 
     'sklearn.feature_selection.SelectPercentile': {
-        'percentile': range(1, 100),
+        'percentile':[i for i in  range(1, 100)],
         'score_func': {
             'sklearn.feature_selection.f_regression': None
         }

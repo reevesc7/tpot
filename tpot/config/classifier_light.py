@@ -44,14 +44,14 @@ classifier_config_dict_light = {
 
     'sklearn.tree.DecisionTreeClassifier': {
         'criterion': ["gini", "entropy"],
-        'max_depth': range(1, 11),
-        'min_samples_split': range(2, 21),
-        'min_samples_leaf': range(1, 21)
+        'max_depth': [i for i in range(1, 11)],
+        'min_samples_split': [i for i in range(2, 21)],
+        'min_samples_leaf': [i for i in range(1, 21)]
     },
 
 
     'sklearn.neighbors.KNeighborsClassifier': {
-        'n_neighbors': range(1, 101),
+        'n_neighbors': [i for i in range(1, 101)],
         'weights': ["uniform", "distance"],
         'p': [1, 2]
     },
@@ -85,7 +85,7 @@ classifier_config_dict_light = {
 
     'sklearn.decomposition.PCA': {
         'svd_solver': ['randomized'],
-        'iterated_power': range(1, 11)
+        'iterated_power': [i for i in range(1, 11)]
     },
 
     'sklearn.kernel_approximation.RBFSampler': {
@@ -110,7 +110,7 @@ classifier_config_dict_light = {
     },
 
     'sklearn.feature_selection.SelectPercentile': {
-        'percentile': range(1, 100),
+        'percentile': [i for i in range(1, 100)],
         'score_func': {
             'sklearn.feature_selection.f_classif': None
         }
