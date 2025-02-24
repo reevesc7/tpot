@@ -63,7 +63,7 @@ regressor_config_dict = {
     'sklearn.tree.DecisionTreeRegressor': {
         'max_depth':[i for i in  range(1, 11)],
         'min_samples_split':[i for i in  range(2, 21)],
-        'min_samples_leaf':[i for i in  range(1, 21])
+        'min_samples_leaf':[i for i in  range(1, 21)]
     },
 
     'sklearn.neighbors.KNeighborsRegressor': {
@@ -144,12 +144,12 @@ regressor_config_dict = {
     'sklearn.kernel_approximation.Nystroem': {
         'kernel': ['rbf', 'cosine', 'chi2', 'laplacian', 'polynomial', 'poly', 'linear', 'additive_chi2', 'sigmoid'],
         'gamma': np.arange(0.0, 1.01, 0.05).tolist(),
-        'n_components':[i for i in  range(1, 11])
+        'n_components':[i for i in  range(1, 11)]
     },
 
     'sklearn.decomposition.PCA': {
         'svd_solver': ['randomized'],
-        'iterated_power':[i for i in  range(1, 11])
+        'iterated_power':[i for i in  range(1, 11)]
     },
 
     'sklearn.preprocessing.PolynomialFeatures': {

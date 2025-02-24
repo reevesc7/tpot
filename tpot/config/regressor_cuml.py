@@ -90,12 +90,12 @@ regressor_config_cuml = {
     "sklearn.kernel_approximation.Nystroem": {
         "kernel": ["rbf", "cosine", "chi2", "laplacian", "polynomial", "poly", "linear", "additive_chi2", "sigmoid"],
         "gamma": np.arange(0.0, 1.01, 0.05).tolist(),
-        "n_components":[i for i in  range(1, 11])
+        "n_components":[i for i in  range(1, 11)]
     },
 
     "sklearn.decomposition.PCA": {
         "svd_solver": ["randomized"],
-        "iterated_power":[i for i in  range(1, 11])
+        "iterated_power":[i for i in  range(1, 11)]
     },
 
     "sklearn.kernel_approximation.RBFSampler": {
