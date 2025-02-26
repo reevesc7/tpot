@@ -33,7 +33,7 @@ classifier_config_cuml = {
     # cuML + DMLC/XGBoost Classifiers
 
     "cuml.neighbors.KNeighborsClassifier": {
-        "n_neighbors": range(1, 101),
+        "n_neighbors": [i for i in range(1, 101)],
         "weights": ["uniform",],
     },
 
@@ -44,10 +44,10 @@ classifier_config_cuml = {
 
     "xgboost.XGBClassifier": {
         "n_estimators": [100],
-        "max_depth": range(3, 10),
+        "max_depth": [i for i in range(3, 10)],
         "learning_rate": [1e-2, 1e-1, 0.5, 1.],
-        "subsample": np.arange(0.05, 1.01, 0.05),
-        "min_child_weight": range(1, 21),
+        "subsample": np.arange(0.05, 1.01, 0.05).tolist(),
+        "min_child_weight": [i for i in range(1, 21)],
         "alpha": [1, 10],
         "tree_method": ["gpu_hist"],
         "n_jobs": [1],
@@ -57,11 +57,11 @@ classifier_config_cuml = {
     # Sklearn Preprocesssors
 
     "sklearn.preprocessing.Binarizer": {
-        "threshold": np.arange(0.0, 1.01, 0.05)
+        "threshold": np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     "sklearn.decomposition.FastICA": {
-        "tol": np.arange(0.0, 1.01, 0.05)
+        "tol": np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     "sklearn.cluster.FeatureAgglomeration": {
@@ -81,17 +81,17 @@ classifier_config_cuml = {
 
     "sklearn.kernel_approximation.Nystroem": {
         "kernel": ["rbf", "cosine", "chi2", "laplacian", "polynomial", "poly", "linear", "additive_chi2", "sigmoid"],
-        "gamma": np.arange(0.0, 1.01, 0.05),
-        "n_components": range(1, 11)
+        "gamma": np.arange(0.0, 1.01, 0.05).tolist(),
+        "n_components": [i for i in range(1, 11)]
     },
 
     "sklearn.decomposition.PCA": {
         "svd_solver": ["randomized"],
-        "iterated_power": range(1, 11)
+        "iterated_power": [i for i in range(1, 11)]
     },
 
     "sklearn.kernel_approximation.RBFSampler": {
-        "gamma": np.arange(0.0, 1.01, 0.05)
+        "gamma": np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     "sklearn.preprocessing.RobustScaler": {
@@ -112,14 +112,14 @@ classifier_config_cuml = {
     # Selectors
 
     "sklearn.feature_selection.SelectFwe": {
-        "alpha": np.arange(0, 0.05, 0.001),
+        "alpha": np.arange(0, 0.05, 0.001).tolist(),
         "score_func": {
             "sklearn.feature_selection.f_classif": None
         }
     },
 
     "sklearn.feature_selection.SelectPercentile": {
-        "percentile": range(1, 100),
+        "percentile": [i for i in range(1, 100)],
         "score_func": {
             "sklearn.feature_selection.f_classif": None
         }

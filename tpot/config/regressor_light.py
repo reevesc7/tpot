@@ -30,18 +30,18 @@ import numpy as np
 regressor_config_dict_light = {
 
     'sklearn.linear_model.ElasticNetCV': {
-        'l1_ratio': np.arange(0.0, 1.01, 0.05),
+        'l1_ratio': np.arange(0.0, 1.01, 0.05).tolist(),
         'tol': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
     },
 
     'sklearn.tree.DecisionTreeRegressor': {
-        'max_depth': range(1, 11),
-        'min_samples_split': range(2, 21),
-        'min_samples_leaf': range(1, 21)
+        'max_depth':[i for i in  range(1, 11)],
+        'min_samples_split':[i for i in  range(2, 21)],
+        'min_samples_leaf':[i for i in  range(1, 21)]
     },
 
     'sklearn.neighbors.KNeighborsRegressor': {
-        'n_neighbors': range(1, 101),
+        'n_neighbors':[i for i in  range(1, 101)],
         'weights': ["uniform", "distance"],
         'p': [1, 2]
     },
@@ -64,7 +64,7 @@ regressor_config_dict_light = {
 
     # Preprocesssors
     'sklearn.preprocessing.Binarizer': {
-        'threshold': np.arange(0.0, 1.01, 0.05)
+        'threshold': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
 
@@ -85,17 +85,17 @@ regressor_config_dict_light = {
 
     'sklearn.kernel_approximation.Nystroem': {
         'kernel': ['rbf', 'cosine', 'chi2', 'laplacian', 'polynomial', 'poly', 'linear', 'additive_chi2', 'sigmoid'],
-        'gamma': np.arange(0.0, 1.01, 0.05),
-        'n_components': range(1, 11)
+        'gamma': np.arange(0.0, 1.01, 0.05).tolist(),
+        'n_components':[i for i in  range(1, 11)]
     },
 
     'sklearn.decomposition.PCA': {
         'svd_solver': ['randomized'],
-        'iterated_power': range(1, 11)
+        'iterated_power':[i for i in  range(1, 11)]
     },
 
     'sklearn.kernel_approximation.RBFSampler': {
-        'gamma': np.arange(0.0, 1.01, 0.05)
+        'gamma': np.arange(0.0, 1.01, 0.05).tolist()
     },
 
     'sklearn.preprocessing.RobustScaler': {
@@ -109,14 +109,14 @@ regressor_config_dict_light = {
 
     # Selectors
     'sklearn.feature_selection.SelectFwe': {
-        'alpha': np.arange(0, 0.05, 0.001),
+        'alpha': np.arange(0, 0.05, 0.001).tolist(),
         'score_func': {
             'sklearn.feature_selection.f_regression': None
         }
     },
 
     'sklearn.feature_selection.SelectPercentile': {
-        'percentile': range(1, 100),
+        'percentile':[i for i in  range(1, 100)],
         'score_func': {
             'sklearn.feature_selection.f_regression': None
         }

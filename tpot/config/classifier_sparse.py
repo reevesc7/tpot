@@ -31,7 +31,7 @@ classifier_config_sparse = {
     },
 
     'sklearn.neighbors.KNeighborsClassifier': {
-        'n_neighbors': range(1, 101),
+        'n_neighbors': [i for i in range(1, 101)],
         'weights': ["uniform", "distance"],
         'p': [1, 2]
     },
@@ -39,48 +39,48 @@ classifier_config_sparse = {
     'sklearn.ensemble.RandomForestClassifier': {
         'n_estimators': [100],
         'criterion': ["gini", "entropy"],
-        'max_features': np.arange(0.05, 1.01, 0.05),
-        'min_samples_split': range(2, 21),
+        'max_features': np.arange(0.05, 1.01, 0.05).tolist(),
+        'min_samples_split': [i for i in range(2, 21)],
         'min_samples_leaf':  range(1, 21),
         'bootstrap': [True, False]
     },
 
     'sklearn.feature_selection.SelectFwe': {
-        'alpha': np.arange(0, 0.05, 0.001),
+        'alpha': np.arange(0, 0.05, 0.001).tolist(),
         'score_func': {
             'sklearn.feature_selection.f_classif': None
         }
     },
 
     'sklearn.feature_selection.SelectPercentile': {
-        'percentile': range(1, 100),
+        'percentile': [i for i in range(1, 100)],
         'score_func': {
             'sklearn.feature_selection.f_classif': None
         }
     },
 
     'sklearn.feature_selection.VarianceThreshold': {
-        'threshold': np.arange(0.05, 1.01, 0.05)
+        'threshold': np.arange(0.05, 1.01, 0.05).tolist()
     },
 
     'sklearn.feature_selection.RFE': {
-        'step': np.arange(0.05, 1.01, 0.05),
+        'step': np.arange(0.05, 1.01, 0.05).tolist(),
         'estimator': {
             'sklearn.ensemble.ExtraTreesClassifier': {
                 'n_estimators': [100],
                 'criterion': ['gini', 'entropy'],
-                'max_features': np.arange(0.05, 1.01, 0.05)
+                'max_features': np.arange(0.05, 1.01, 0.05).tolist()
             }
         }
     },
 
     'sklearn.feature_selection.SelectFromModel': {
-        'threshold': np.arange(0, 1.01, 0.05),
+        'threshold': np.arange(0, 1.01, 0.05).tolist(),
         'estimator': {
             'sklearn.ensemble.ExtraTreesClassifier': {
                 'n_estimators': [100],
                 'criterion': ['gini', 'entropy'],
-                'max_features': np.arange(0.05, 1.01, 0.05)
+                'max_features': np.arange(0.05, 1.01, 0.05).tolist()
             }
         }
     },
@@ -111,10 +111,10 @@ classifier_config_sparse = {
 
     'xgboost.XGBClassifier': {
         'n_estimators': [100],
-        'max_depth': range(1, 11),
+        'max_depth': [i for i in range(1, 11)],
         'learning_rate': [1e-3, 1e-2, 1e-1, 0.5, 1.],
-        'subsample': np.arange(0.05, 1.01, 0.05),
-        'min_child_weight': range(1, 21),
+        'subsample': np.arange(0.05, 1.01, 0.05).tolist(),
+        'min_child_weight': [i for i in range(1, 21)],
         'n_jobs': [1],
         'verbosity': [0]
     }

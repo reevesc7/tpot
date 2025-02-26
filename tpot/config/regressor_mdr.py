@@ -32,7 +32,7 @@ tpot_mdr_regressor_config_dict = {
     # Regressors
 
     'sklearn.linear_model.ElasticNetCV': {
-        'l1_ratio': np.arange(0.0, 1.01, 0.05),
+        'l1_ratio': np.arange(0.0, 1.01, 0.05).tolist(),
         'tol': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
     },
 
@@ -46,20 +46,20 @@ tpot_mdr_regressor_config_dict = {
     # Feature Selectors
 
     'skrebate.ReliefF': {
-        'n_features_to_select': range(1, 6),
+        'n_features_to_select':[i for i in  range(1, 6)],
         'n_neighbors': [2, 10, 50, 100, 250, 500]
     },
 
     'skrebate.SURF': {
-        'n_features_to_select': range(1, 6)
+        'n_features_to_select':[i for i in  range(1, 6)]
     },
 
     'skrebate.SURFstar': {
-        'n_features_to_select': range(1, 6)
+        'n_features_to_select':[i for i in  range(1, 6)]
     },
 
     'skrebate.MultiSURF': {
-        'n_features_to_select': range(1, 6)
+        'n_features_to_select':[i for i in  range(1, 6)]
     }
 
 }
