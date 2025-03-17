@@ -101,10 +101,10 @@ def objective_nan_wrapper(  individual,
             return ["TIMEOUT"]
         except Exception as e:
             if verbose == 4:
-                print(f'WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION \n {individual} \n {e} \n')
+                print(f'WARNING THIS INDIVIDUAL CAUSED AN EXCEPTION \n {individual} \n {e} \n')
             if verbose >= 5:
                 trace = traceback.format_exc()
-                print(f'WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION \n {individual} \n {e} \n {trace}')
+                print(f'WARNING THIS INDIVIDUAL CAUSED AN EXCEPTION \n {individual} \n {e} \n {trace}')
             return ["INVALID"]
         
 
@@ -283,7 +283,7 @@ def optimize_objective(ind, objective, steps=5, verbose=0):
             return value
         except Exception as e:
             if verbose >= 2:
-                print('WARNING THIS INDIVIDUAL CAUSED AND EXCEPTION')
+                print('WARNING THIS INDIVIDUAL CAUSED AN EXCEPTION')
                 print(e)
                 print()
             if verbose >= 3:
