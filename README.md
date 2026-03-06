@@ -83,7 +83,6 @@ scipy
 scikit-learn
 update_checker
 tqdm
-stopit
 pandas
 joblib
 xgboost
