@@ -43,9 +43,8 @@ class Passthrough(TransformerMixin,BaseEstimator):
 
     def fit(self, X=None, y=None):
         """
-        Nothing to fit, just sets a fitted flag and returns self.
+        Nothing to fit, just returns self.
         """
-        self.is_fitted_ = True
         return self
 
     def transform(self, X):
@@ -61,9 +60,8 @@ class SkipTransformer(TransformerMixin,BaseEstimator):
     """
     def fit(self, X=None, y=None):
         """
-        Nothing to fit, just sets a fitted flag and returns self.
+        Nothing to fit, just returns self.
         """
-        self.is_fitted_ = True
         return self
 
     def transform(self, X):
